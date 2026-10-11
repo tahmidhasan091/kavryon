@@ -22,11 +22,21 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          accept-android-sdk-licenses: true
-          packages: 'tools platform-tools platforms;android-34 build-tools;34.0.0'
+      - name: Install Android commandlinetools
+        run: |
+          mkdir -p $HOME/android-sdk/cmdline-tools
+          cd /tmp
+          curl -fsSL -o cmdtools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+          unzip -q cmdtools.zip -d $HOME/android-sdk/cmdline-tools
+          mv $HOME/android-sdk/cmdline-tools/cmdline-tools $HOME/android-sdk/cmdline-tools/latest
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$HOME/android-sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+          echo "$HOME/android-sdk/platform-tools" >> $GITHUB_PATH
+
+      - name: Install SDK packages
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
 
       - name: Sync assets
         run: node scripts/sync-android-assets.js
@@ -37,6 +47,7 @@ jobs:
       - name: Build APK
         working-directory: android
         env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
           KAVRYON_API_URL: http://10.0.2.2:8080
         run: ./gradlew assembleDebug --no-daemon --stacktrace
 
