@@ -1,0 +1,82 @@
+{
+  "template": "Arena",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [
+    {
+      "id": "a",
+      "name": "Alpha",
+      "color": "#fbbf24"
+    },
+    {
+      "id": "b",
+      "name": "Beta",
+      "color": "#a78bfa"
+    }
+  ],
+  "objects": [
+    {
+      "id": "spA",
+      "type": "spawn",
+      "x": 80,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false,
+      "team": "a"
+    },
+    {
+      "id": "spB",
+      "type": "spawn",
+      "x": 560,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false,
+      "team": "b"
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    }
+  ],
+  "items": [
+    {
+      "id": "fist",
+      "name": "Fists",
+      "type": "weapon",
+      "damage": 12,
+      "stack": 1
+    }
+  ],
+  "npcs": [],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 8,
+    "friendlyFire": false,
+    "matchDurationSec": 120,
+    "startingItems": [
+      "fist"
+    ],
+    "winCondition": "lastStanding"
+  },
+  "scripts": [
+    {
+      "on": "onGameStart",
+      "actions": [
+        {
+          "type": "startRound"
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

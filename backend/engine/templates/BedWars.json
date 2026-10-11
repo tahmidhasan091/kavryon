@@ -1,0 +1,324 @@
+{
+  "template": "BedWars",
+  "dimension": "2d",
+  "world": {
+    "width": 800,
+    "height": 400,
+    "gravity": 0.55
+  },
+  "teams": [
+    {
+      "id": "red",
+      "name": "Crimson",
+      "color": "#f87171"
+    },
+    {
+      "id": "blue",
+      "name": "Azure",
+      "color": "#60a5fa"
+    }
+  ],
+  "objects": [
+    {
+      "id": "floor",
+      "type": "floor",
+      "x": 400,
+      "y": 380,
+      "w": 800,
+      "h": 40,
+      "collision": true
+    },
+    {
+      "id": "isleR",
+      "type": "platform",
+      "x": 120,
+      "y": 300,
+      "w": 180,
+      "h": 18,
+      "collision": true
+    },
+    {
+      "id": "isleB",
+      "type": "platform",
+      "x": 680,
+      "y": 300,
+      "w": 180,
+      "h": 18,
+      "collision": true
+    },
+    {
+      "id": "mid",
+      "type": "platform",
+      "x": 400,
+      "y": 250,
+      "w": 120,
+      "h": 16,
+      "collision": true
+    },
+    {
+      "id": "bridgeL",
+      "type": "platform",
+      "x": 260,
+      "y": 280,
+      "w": 80,
+      "h": 12,
+      "collision": true
+    },
+    {
+      "id": "bridgeR",
+      "type": "platform",
+      "x": 540,
+      "y": 280,
+      "w": 80,
+      "h": 12,
+      "collision": true
+    },
+    {
+      "id": "spR",
+      "type": "spawn",
+      "x": 80,
+      "y": 260,
+      "w": 20,
+      "h": 20,
+      "collision": false,
+      "team": "red"
+    },
+    {
+      "id": "spB",
+      "type": "spawn",
+      "x": 720,
+      "y": 260,
+      "w": 20,
+      "h": 20,
+      "collision": false,
+      "team": "blue"
+    },
+    {
+      "id": "bedR",
+      "type": "bed",
+      "x": 100,
+      "y": 280,
+      "w": 40,
+      "h": 18,
+      "collision": true,
+      "team": "red",
+      "props": {
+        "label": "Crimson Crystal"
+      }
+    },
+    {
+      "id": "bedB",
+      "type": "bed",
+      "x": 700,
+      "y": 280,
+      "w": 40,
+      "h": 18,
+      "collision": true,
+      "team": "blue",
+      "props": {
+        "label": "Azure Crystal"
+      }
+    },
+    {
+      "id": "genR",
+      "type": "generator",
+      "x": 140,
+      "y": 270,
+      "w": 22,
+      "h": 22,
+      "collision": false,
+      "team": "red",
+      "props": {
+        "itemId": "iron",
+        "rateMs": 2000
+      }
+    },
+    {
+      "id": "genB",
+      "type": "generator",
+      "x": 660,
+      "y": 270,
+      "w": 22,
+      "h": 22,
+      "collision": false,
+      "team": "blue",
+      "props": {
+        "itemId": "iron",
+        "rateMs": 2000
+      }
+    },
+    {
+      "id": "genMid",
+      "type": "generator",
+      "x": 400,
+      "y": 220,
+      "w": 22,
+      "h": 22,
+      "collision": false,
+      "props": {
+        "itemId": "gold",
+        "rateMs": 5000
+      }
+    },
+    {
+      "id": "shopR",
+      "type": "shop",
+      "x": 160,
+      "y": 270,
+      "w": 26,
+      "h": 26,
+      "collision": false,
+      "team": "red",
+      "props": {
+        "shopId": "main",
+        "label": "Shop"
+      }
+    },
+    {
+      "id": "shopB",
+      "type": "shop",
+      "x": 640,
+      "y": 270,
+      "w": 26,
+      "h": 26,
+      "collision": false,
+      "team": "blue",
+      "props": {
+        "shopId": "main",
+        "label": "Shop"
+      }
+    },
+    {
+      "id": "hazard1",
+      "type": "hazard",
+      "x": 400,
+      "y": 360,
+      "w": 60,
+      "h": 12,
+      "collision": false,
+      "props": {
+        "damage": 15
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "iron",
+      "name": "Iron",
+      "type": "resource",
+      "stack": 64
+    },
+    {
+      "id": "gold",
+      "name": "Gold",
+      "type": "resource",
+      "stack": 32
+    },
+    {
+      "id": "sword",
+      "name": "Blade",
+      "type": "weapon",
+      "damage": 20,
+      "stack": 1,
+      "price": 5,
+      "currency": "iron"
+    },
+    {
+      "id": "armor",
+      "name": "Plate",
+      "type": "armor",
+      "armor": 10,
+      "stack": 1,
+      "price": 8,
+      "currency": "iron"
+    },
+    {
+      "id": "block",
+      "name": "Block",
+      "type": "placeable",
+      "stack": 32,
+      "price": 2,
+      "currency": "iron"
+    },
+    {
+      "id": "potion",
+      "name": "Heal Brew",
+      "type": "consumable",
+      "stack": 8,
+      "price": 4,
+      "currency": "gold",
+      "meta": {
+        "heal": 40
+      }
+    }
+  ],
+  "shops": [
+    {
+      "id": "main",
+      "name": "Siege Shop",
+      "listings": [
+        {
+          "itemId": "sword",
+          "price": 5,
+          "currency": "iron"
+        },
+        {
+          "itemId": "armor",
+          "price": 8,
+          "currency": "iron"
+        },
+        {
+          "itemId": "block",
+          "price": 2,
+          "currency": "iron"
+        },
+        {
+          "itemId": "potion",
+          "price": 4,
+          "currency": "gold"
+        }
+      ]
+    }
+  ],
+  "npcs": [],
+  "quests": [],
+  "rules": {
+    "maxPlayers": 8,
+    "friendlyFire": false,
+    "eliminateOnBedBreak": true,
+    "matchDurationSec": 600,
+    "respawnDelayMs": 2000,
+    "winCondition": "lastStanding",
+    "instructions": "Protect your team crystal. Collect iron/gold, buy gear at shops (E), attack with J. Destroy the enemy crystal, then eliminate remaining players. Last team standing wins."
+  },
+  "scripts": [
+    {
+      "on": "onGameStart",
+      "actions": [
+        {
+          "type": "broadcast",
+          "message": "Crystal Siege \u2014 protect your crystal!"
+        }
+      ]
+    },
+    {
+      "on": "onBedDestroyed",
+      "actions": [
+        {
+          "type": "broadcast",
+          "message": "A crystal was shattered!"
+        }
+      ]
+    },
+    {
+      "on": "onRoundEnd",
+      "actions": [
+        {
+          "type": "broadcast",
+          "message": "Match over!"
+        }
+      ]
+    }
+  ],
+  "presentation": "3d-capable"
+}

@@ -1,0 +1,131 @@
+{
+  "template": "Obby",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 40,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "p1",
+      "type": "platform",
+      "x": 180,
+      "y": 280,
+      "w": 80,
+      "h": 16
+    },
+    {
+      "id": "p2",
+      "type": "platform",
+      "x": 300,
+      "y": 230,
+      "w": 80,
+      "h": 16
+    },
+    {
+      "id": "p3",
+      "type": "platform",
+      "x": 420,
+      "y": 180,
+      "w": 80,
+      "h": 16
+    },
+    {
+      "id": "hz1",
+      "type": "hazard",
+      "x": 250,
+      "y": 320,
+      "w": 40,
+      "h": 20
+    },
+    {
+      "id": "cp1",
+      "type": "checkpoint",
+      "x": 300,
+      "y": 210,
+      "w": 24,
+      "h": 24,
+      "collision": false
+    },
+    {
+      "id": "fin",
+      "type": "finish",
+      "x": 520,
+      "y": 150,
+      "w": 40,
+      "h": 40,
+      "collision": false
+    }
+  ],
+  "items": [],
+  "npcs": [],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "winCondition": "finish",
+    "respawnDelayMs": 800,
+    "maxPlayers": 8
+  },
+  "scripts": [
+    {
+      "on": "onPlayerTouch",
+      "filter": {
+        "objectType": "checkpoint"
+      },
+      "actions": [
+        {
+          "type": "setCheckpoint"
+        },
+        {
+          "type": "message",
+          "message": "Checkpoint!"
+        }
+      ]
+    },
+    {
+      "on": "onPlayerWin",
+      "filter": {},
+      "actions": [
+        {
+          "type": "win",
+          "reason": "finish"
+        },
+        {
+          "type": "broadcast",
+          "message": "Obby complete!"
+        }
+      ]
+    },
+    {
+      "on": "onPlayerTouch",
+      "filter": {
+        "objectType": "hazard"
+      },
+      "actions": [
+        {
+          "type": "damage",
+          "amount": 100
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

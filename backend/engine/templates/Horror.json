@@ -1,0 +1,72 @@
+{
+  "template": "Horror",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 80,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "hz",
+      "type": "hazard",
+      "x": 320,
+      "y": 320,
+      "w": 60,
+      "h": 20
+    }
+  ],
+  "items": [],
+  "npcs": [
+    {
+      "id": "stalker",
+      "name": "Stalker",
+      "kind": "enemy",
+      "x": 500,
+      "y": 300,
+      "health": 200,
+      "damage": 25,
+      "speed": 2,
+      "ai": "chase"
+    }
+  ],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 4,
+    "lives": 1,
+    "respawnDelayMs": 0
+  },
+  "scripts": [
+    {
+      "on": "onPlayerDeath",
+      "actions": [
+        {
+          "type": "lose",
+          "reason": "caught"
+        },
+        {
+          "type": "spectate"
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

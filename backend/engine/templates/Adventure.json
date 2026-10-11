@@ -1,0 +1,80 @@
+{
+  "template": "Adventure",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 40,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "door",
+      "type": "door",
+      "x": 300,
+      "y": 300,
+      "w": 30,
+      "h": 50
+    },
+    {
+      "id": "tp",
+      "type": "teleport",
+      "x": 500,
+      "y": 300,
+      "w": 30,
+      "h": 30,
+      "collision": false,
+      "props": {
+        "targetX": 80,
+        "targetY": 200
+      }
+    },
+    {
+      "id": "cp1",
+      "type": "checkpoint",
+      "x": 250,
+      "y": 300,
+      "w": 24,
+      "h": 24,
+      "collision": false
+    }
+  ],
+  "items": [],
+  "npcs": [],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 4
+  },
+  "scripts": [
+    {
+      "on": "onPlayerTouch",
+      "filter": {
+        "objectType": "teleport"
+      },
+      "actions": [
+        {
+          "type": "message",
+          "message": "Teleported!"
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

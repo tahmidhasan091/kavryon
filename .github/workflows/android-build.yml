@@ -1,0 +1,51 @@
+name: Android Build
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept licenses
+        run: yes | sdkmanager --licenses || true
+
+      - name: Install SDK packages
+        run: sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
+
+      - name: Sync assets
+        run: node scripts/sync-android-assets.js
+
+      - name: Fix gradlew
+        run: chmod +x android/gradlew
+
+      - name: Build APK
+        working-directory: android
+        env:
+          KAVRYON_API_URL: http://10.0.2.2:8080
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: kavryon-debug-apk
+          path: android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error

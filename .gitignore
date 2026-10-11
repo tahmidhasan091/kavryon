@@ -1,0 +1,26 @@
+.env
+node_modules/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+logs/
+*.log
+.DS_Store
+android/app/build/
+android/.gradle/
+dist/
+
+# Android local / build
+android/local.properties
+android/.gradle/
+android/app/build/
+android/build/
+android/*.jks
+android/*.keystore
+*.apk
+*.aab
+*.env
+.env.*
+!/.env.example
+node_modules/

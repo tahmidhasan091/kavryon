@@ -1,0 +1,106 @@
+{
+  "template": "Racing",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 40,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "cp1",
+      "type": "checkpoint",
+      "x": 200,
+      "y": 300,
+      "w": 30,
+      "h": 40,
+      "collision": false,
+      "props": {
+        "index": 1
+      }
+    },
+    {
+      "id": "cp2",
+      "type": "checkpoint",
+      "x": 400,
+      "y": 300,
+      "w": 30,
+      "h": 40,
+      "collision": false,
+      "props": {
+        "index": 2
+      }
+    },
+    {
+      "id": "fin",
+      "type": "finish",
+      "x": 600,
+      "y": 300,
+      "w": 40,
+      "h": 40,
+      "collision": false
+    }
+  ],
+  "items": [],
+  "npcs": [],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 6,
+    "winCondition": "finish"
+  },
+  "scripts": [
+    {
+      "on": "onPlayerTouch",
+      "filter": {
+        "objectType": "checkpoint"
+      },
+      "actions": [
+        {
+          "type": "setCheckpoint"
+        },
+        {
+          "type": "incVar",
+          "name": "checkpoints"
+        },
+        {
+          "type": "addScore",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "on": "onPlayerWin",
+      "actions": [
+        {
+          "type": "win",
+          "reason": "race"
+        },
+        {
+          "type": "broadcast",
+          "message": "Race finished!"
+        }
+      ]
+    }
+  ],
+  "vars": {
+    "laps": 0
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "template": "Survival",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 320,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    }
+  ],
+  "items": [
+    {
+      "id": "medkit",
+      "name": "Medkit",
+      "type": "consumable",
+      "stack": 5,
+      "meta": {
+        "heal": 40
+      }
+    }
+  ],
+  "npcs": [
+    {
+      "id": "e1",
+      "name": "Walker",
+      "kind": "enemy",
+      "x": 100,
+      "y": 300,
+      "health": 30,
+      "damage": 8,
+      "speed": 1.2,
+      "ai": "chase",
+      "dropId": "medkit"
+    },
+    {
+      "id": "e2",
+      "name": "Walker",
+      "kind": "enemy",
+      "x": 500,
+      "y": 300,
+      "health": 30,
+      "damage": 8,
+      "speed": 1.2,
+      "ai": "chase",
+      "dropId": "medkit"
+    }
+  ],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 4,
+    "lives": 3,
+    "winCondition": "survive",
+    "matchDurationSec": 120
+  },
+  "scripts": [
+    {
+      "on": "onGameStart",
+      "actions": [
+        {
+          "type": "startRound"
+        },
+        {
+          "type": "setTimer",
+          "name": "match",
+          "seconds": 120
+        },
+        {
+          "type": "broadcast",
+          "message": "Survive the waves!"
+        }
+      ]
+    },
+    {
+      "on": "onTimerEnd",
+      "actions": [
+        {
+          "type": "win",
+          "reason": "survived"
+        }
+      ]
+    }
+  ],
+  "vars": {
+    "wave": 1
+  }
+}

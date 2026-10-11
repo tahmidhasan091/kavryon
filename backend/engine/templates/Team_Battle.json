@@ -1,0 +1,95 @@
+{
+  "template": "Team Battle",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [
+    {
+      "id": "red",
+      "name": "Red",
+      "color": "#f87171"
+    },
+    {
+      "id": "blue",
+      "name": "Blue",
+      "color": "#60a5fa"
+    }
+  ],
+  "objects": [
+    {
+      "id": "spR",
+      "type": "spawn",
+      "x": 80,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false,
+      "team": "red"
+    },
+    {
+      "id": "spB",
+      "type": "spawn",
+      "x": 560,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false,
+      "team": "blue"
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "wall",
+      "type": "wall",
+      "x": 320,
+      "y": 280,
+      "w": 20,
+      "h": 100
+    }
+  ],
+  "items": [
+    {
+      "id": "sword",
+      "name": "Sword",
+      "type": "weapon",
+      "damage": 15,
+      "stack": 1
+    }
+  ],
+  "npcs": [],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 8,
+    "friendlyFire": false,
+    "matchDurationSec": 180,
+    "startingItems": [
+      "sword"
+    ],
+    "winCondition": "lastStanding"
+  },
+  "scripts": [
+    {
+      "on": "onGameStart",
+      "actions": [
+        {
+          "type": "startRound"
+        },
+        {
+          "type": "setTimer",
+          "name": "match",
+          "seconds": 180
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

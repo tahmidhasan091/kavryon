@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kavx">
+  <defs>
+    <linearGradient id="kx" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+  </defs>
+  <!-- hex shield -->
+  <polygon points="32,4 56,18 56,46 32,60 8,46 8,18" fill="#1c1917" stroke="url(#kx)" stroke-width="3"/>
+  <!-- fused K+X mark -->
+  <path d="M18 18 L28 32 L18 46 H26 L32 36 L38 46 H46 L36 32 L46 18 H38 L32 28 L26 18 Z" fill="url(#kx)"/>
+</svg>

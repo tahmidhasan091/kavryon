@@ -1,0 +1,96 @@
+{
+  "template": "Platformer",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 50,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "p1",
+      "type": "platform",
+      "x": 150,
+      "y": 270,
+      "w": 100,
+      "h": 14
+    },
+    {
+      "id": "p2",
+      "type": "platform",
+      "x": 320,
+      "y": 220,
+      "w": 100,
+      "h": 14
+    },
+    {
+      "id": "p3",
+      "type": "platform",
+      "x": 480,
+      "y": 170,
+      "w": 100,
+      "h": 14
+    },
+    {
+      "id": "coin",
+      "type": "item_pickup",
+      "x": 320,
+      "y": 190,
+      "w": 16,
+      "h": 16,
+      "collision": false,
+      "props": {
+        "itemId": "coin"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "coin",
+      "name": "Coin",
+      "type": "misc",
+      "stack": 99
+    }
+  ],
+  "npcs": [],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 6,
+    "winCondition": "score"
+  },
+  "scripts": [
+    {
+      "on": "onPlayerCollect",
+      "actions": [
+        {
+          "type": "addScore",
+          "amount": 10
+        },
+        {
+          "type": "addCurrency",
+          "currency": "coins",
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

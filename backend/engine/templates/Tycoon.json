@@ -1,0 +1,99 @@
+{
+  "template": "Tycoon",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 80,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "gen",
+      "type": "generator",
+      "x": 200,
+      "y": 300,
+      "w": 30,
+      "h": 30,
+      "collision": false,
+      "props": {
+        "itemId": "cash",
+        "rateMs": 2000
+      }
+    },
+    {
+      "id": "shop1",
+      "type": "shop",
+      "x": 350,
+      "y": 300,
+      "w": 30,
+      "h": 30,
+      "collision": false,
+      "props": {
+        "shopId": "upgrades"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "cash",
+      "name": "Cash",
+      "type": "resource",
+      "stack": 999
+    },
+    {
+      "id": "dropper",
+      "name": "Dropper",
+      "type": "misc",
+      "stack": 5,
+      "price": 10,
+      "currency": "cash"
+    }
+  ],
+  "npcs": [],
+  "quests": [],
+  "shops": [
+    {
+      "id": "upgrades",
+      "name": "Upgrades",
+      "listings": [
+        {
+          "itemId": "dropper",
+          "price": 10,
+          "currency": "cash"
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "maxPlayers": 4
+  },
+  "scripts": [
+    {
+      "on": "onPlayerBuy",
+      "actions": [
+        {
+          "type": "addScore",
+          "amount": 5
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

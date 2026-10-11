@@ -1,0 +1,74 @@
+{
+  "template": "Simulator",
+  "world": {
+    "width": 640,
+    "height": 360,
+    "gravity": 0.5
+  },
+  "teams": [],
+  "objects": [
+    {
+      "id": "sp1",
+      "type": "spawn",
+      "x": 100,
+      "y": 300,
+      "w": 20,
+      "h": 20,
+      "collision": false
+    },
+    {
+      "id": "g1",
+      "type": "floor",
+      "x": 320,
+      "y": 340,
+      "w": 640,
+      "h": 30
+    },
+    {
+      "id": "zone",
+      "type": "zone",
+      "x": 320,
+      "y": 280,
+      "w": 120,
+      "h": 80,
+      "collision": false,
+      "props": {
+        "zone": "farm"
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "power",
+      "name": "Power",
+      "type": "misc",
+      "stack": 999
+    }
+  ],
+  "npcs": [],
+  "quests": [],
+  "shops": [],
+  "rules": {
+    "maxPlayers": 8
+  },
+  "scripts": [
+    {
+      "on": "onPlayerEnterZone",
+      "filter": {
+        "zone": "farm"
+      },
+      "actions": [
+        {
+          "type": "giveItem",
+          "itemId": "power",
+          "qty": 1
+        },
+        {
+          "type": "addXp",
+          "amount": 2
+        }
+      ]
+    }
+  ],
+  "vars": {}
+}

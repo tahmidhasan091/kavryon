@@ -1,0 +1,15 @@
+{
+  "name": "kavryon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kavryon original user-generated multiplayer platform",
+  "scripts": {
+    "start": "node backend/server.js",
+    "backend": "node backend/server.js",
+    "test": "node tests/release-config-tests.js && node tests/server-smoke.js && node tests/run-tests.js && node tests/engine-tests.js && node tests/studio-tests.js && node tests/discovery-e2e.js && node tests/invite-tests.js && node tests/ai-provider-tests.js && node tests/platform-tests.js && node tests/billing-tests.js && node tests/moderation-private-tests.js && node tests/gamepass-tests.js && node tests/security-hardening-tests.js && node tests/bedwars-e2e.js && node tests/video-tests.js && node tests/collab-tests.js && node tests/bd-payment-tests.js",
+    "cap:init": "echo See README for Capacitor Android wrap",
+    "test:collab": "node tests/collab-tests.js",
+    "sync:android": "node scripts/sync-android-assets.js",
+    "validate:prod": "node scripts/validate-prod-config.js"
+  }
+}

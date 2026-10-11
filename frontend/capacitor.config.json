@@ -1,0 +1,12 @@
+{
+  "appId": "com.kavryon.platform",
+  "appName": "Kavryon",
+  "webDir": ".",
+  "server": {
+    "url": "",
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}
